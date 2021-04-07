@@ -1,5 +1,4 @@
 var i = 32;
-var bmw = false;
 
 $('#bmw')[0].src = `./bmw/${i}.jpg`;
 
@@ -30,9 +29,6 @@ function playBmw() {
     $('#bmw')[0].src = `./bmw/${i}.jpg`;
 }
 
-$('input')[0].click(()=>{ bmw = false });
-
-
 var direction = "",
     oldx = 0,
     mousemovemethod = function (e) {
@@ -56,3 +52,8 @@ var direction = "",
 }
 
 $('#bmw').on('mousemove', mousemovemethod);
+$('#bmw')[0].addEventListener('contextmenu', function(ev) {
+    ev.preventDefault();
+    setInterval(playBmw, 125);
+    return false;
+}, false);
