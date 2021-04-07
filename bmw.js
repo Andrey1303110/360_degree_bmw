@@ -33,14 +33,14 @@ var direction = "",
     oldx = 0,
     mousemovemethod = function (e) {
     
-    if (e.pageX < oldx) {
+    if (e.pageX < oldx - 6.5) {
         direction = "left";
         i -= 1;
         if (i < 1) {
             i = 35;
         }
     } 
-    else if (e.pageX > oldx) {
+    else if (e.pageX > oldx + 6.5) {
         direction = "right";
         i += 1;
         if (i >= 35) {
@@ -62,7 +62,7 @@ $('#bmw')[0].addEventListener('contextmenu', function(ev) {
         else i += 1;
         $('#bmw')[0].src = `./bmw/${i}.jpg`;
     }, 125);
-    setTimeout(() => clearInterval(timerId), 9000);
+    setTimeout(() => clearInterval(timerId), 8750);
 
     return false;
 }, false);
