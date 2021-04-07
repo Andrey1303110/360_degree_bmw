@@ -54,6 +54,15 @@ var direction = "",
 $('#bmw').on('mousemove', mousemovemethod);
 $('#bmw')[0].addEventListener('contextmenu', function(ev) {
     ev.preventDefault();
-    setInterval(playBmw, 125);
+
+    let timerId = setInterval(() => { 
+        if (i >= 35) {
+            i = 1;
+        }
+        else i += 1;
+        $('#bmw')[0].src = `./bmw/${i}.jpg`;
+    }, 125);
+    setTimeout(() => clearInterval(timerId), 9000);
+
     return false;
 }, false);
